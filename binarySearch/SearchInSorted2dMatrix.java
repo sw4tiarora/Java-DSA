@@ -1,6 +1,7 @@
 import java.util.*;
 
-class Solution {
+public class SearchInSorted2dMatrix {
+
     public boolean searchMatrix(int[][] matrix, int target) {
         int n = matrix.length;
         int m = matrix[0].length;
@@ -15,10 +16,8 @@ class Solution {
 
             if (matrix[row][col] == target)
                 return true;
-
             else if (matrix[row][col] < target)
                 low = mid + 1;
-
             else
                 high = mid - 1;
         }
@@ -26,22 +25,16 @@ class Solution {
         return false;
     }
 
+    public static void main(String[] args) {
+        int[][] matrix = {
+                {1, 2, 3, 4},
+                {5, 6, 7, 8},
+                {9, 10, 11, 12}
+        };
 
-    // Driver class
-    public class Main {
-        public static void main(String[] args) {
-            int[][] matrix = {
-                    {1, 2, 3, 4},
-                    {5, 6, 7, 8},
-                    {9, 10, 11, 12}
-            };
-            Solution obj = new Solution();
+        SearchInSorted2dMatrix obj = new SearchInSorted2dMatrix();
 
-            if (obj.searchMatrix(matrix, 8))
-                System.out.println("true");
-            else
-                System.out.println("false");
-        }
+        System.out.println(obj.searchMatrix(matrix, 8));
     }
 }
 
